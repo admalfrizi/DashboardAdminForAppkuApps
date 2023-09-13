@@ -25,8 +25,10 @@ class KelasDataController extends Controller
 
             return ResponseFormatter::success($categoryData,"Berikut Data Kelas Dengan Kategori $categoriName");
         }
+
+        $kelasAll = $kelas->get();
     
-        return ResponseFormatter::success($kelas,"Data Kelas Berikut");
+        return ResponseFormatter::success($kelasAll,"Data Kelas Berikut");
     }
 
     public function storeData(Request $request){
