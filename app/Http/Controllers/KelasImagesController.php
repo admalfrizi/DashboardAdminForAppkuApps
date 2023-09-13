@@ -31,7 +31,7 @@ class KelasImagesController extends Controller
         if($request->hasFile('files')){
             foreach ($files as $file) {
                 $destination_path = "public/images/kelasImages/$kelas->id";
-                $fileName = $file->getClientOriginalName();
+                $fileName = time().'.'.$file->extension();
                 $file->storeAs($destination_path,$fileName);
 
                 KelasImages::create([

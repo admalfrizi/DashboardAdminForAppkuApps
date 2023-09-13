@@ -10,9 +10,15 @@ use Validator;
 
 class WebinarDataController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $webinar_id = $request->input("id");
         $webinar = Webinar::with('imageGalleries')->get();
+
+        if($webinar_id){
+            $idWebinarData = $webinar->find($webinar_id);
+            return ResponseFormatter::success($idWebinarData,"Berikut Data untuk $idWebinarData->titleWebinar");
+        }
      
         return ResponseFormatter::success($webinar,'Webinar Data List');
 

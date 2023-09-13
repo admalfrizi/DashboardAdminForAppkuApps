@@ -32,7 +32,7 @@ class WebinarImagesController extends Controller
         if($request->hasFile('files')){
             foreach ($files as $file) {
                 $destination_path = "public/images/webinarImages/$webinar->id";
-                $fileName = $file->getClientOriginalName();
+                $fileName = time().'.'.$file->extension();
                 $file->storeAs($destination_path,$fileName);
 
                 WebinarImages::create([

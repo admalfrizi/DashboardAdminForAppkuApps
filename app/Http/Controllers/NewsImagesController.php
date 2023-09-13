@@ -31,7 +31,7 @@ class NewsImagesController extends Controller
         if($request->hasFile('files')){
             foreach ($files as $file) {
                 $destination_path = "public/images/newsImages/$news->id";
-                $fileName = $file->getClientOriginalName();
+                $fileName = time().'.'.$file->extension();
                 $file->storeAs($destination_path,$fileName);
 
                 NewsImages::create([

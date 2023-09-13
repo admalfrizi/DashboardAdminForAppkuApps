@@ -17,14 +17,16 @@ class KelasDataController extends Controller
         $kelas = Kelas::query()->with(['categoryKelas', 'imageGalleries']);
 
         if($categories){
-            $kelas->whereHas('categoryKelas', function ($query) use($kelas, $categories){
+            $categoryData = $kelas->whereHas('categoryKelas', function ($query) use($kelas, $categories){
                 $query->where('category_id', $categories);
-            });
-        }
-        
-        $kelas = $kelas->get();
+            })->get();
 
-        return ResponseFormatter::success($kelas,'Kelas Dengan Kategori Berikut');
+            $categoriName =  KelasCategory::find($categories)->categoryName;
+
+            return ResponseFormatter::success($categoryData,"Berikut Data Kelas Dengan Kategori $categoriName");
+        }
+    
+        return ResponseFormatter::success($kelas,"Data Kelas Berikut");
     }
 
     public function storeData(Request $request){
