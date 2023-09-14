@@ -10,11 +10,19 @@ use Validator;
 
 class NewsDataController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $berita = News::with('imageGalleries')->get();
+        $id = $request->input('id');
+        $berita = News::query()->with('imageGalleries');
+
+        if($id){
+            $oneBeritaData = $berita->find($id);
+            return ResponseFormatter::success($oneBeritaData,"Berikut Data untuk $oneBeritaData->nameNews");
+        }
+
+        $beritaAll = $berita->get();
         
-        return ResponseFormatter::success($berita,'News Data List');
+        return ResponseFormatter::success($beritaAll,'Data untuk Berita');
     }
 
     public function storeData(Request $request){

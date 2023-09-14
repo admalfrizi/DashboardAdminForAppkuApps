@@ -13,6 +13,7 @@ class KelasDataController extends Controller
 {
     public function index(Request $request)
     {
+        $id = $request->input('id');
         $categories = $request->input('categories');
         $kelas = Kelas::query()->with(['categoryKelas', 'imageGalleries']);
 
@@ -24,6 +25,11 @@ class KelasDataController extends Controller
             $categoriName =  KelasCategory::find($categories)->categoryName;
 
             return ResponseFormatter::success($categoryData,"Berikut Data Kelas Dengan Kategori $categoriName");
+        }
+
+        if($id){
+            $oneKelasData = $kelas->find($id);
+            return ResponseFormatter::success($oneKelasData,"Berikut Data untuk $oneKelasData->titleKelas");
         }
 
         $kelasAll = $kelas->get();
