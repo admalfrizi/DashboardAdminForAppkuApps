@@ -154,6 +154,18 @@
             <x-responsive-nav-link href="{{ route('dashboard.') }}" :active="request()->routeIs('dashboard.')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('dashboard.webinar.index') }}" :active="request()->routeIs('dashboard.webinar.index')">
+                {{ __('Webinar') }}
+            </x-responsive-nav-link >
+            <x-responsive-nav-link href="{{ route('dashboard.categoryKelas.index') }}" :active="request()->routeIs('dashboard.categoryKelas.index')">
+                {{ __('Kelas Kategori') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('dashboard.kelas.index') }}" :active="request()->routeIs('dashboard.kelas.index')">
+                {{ __('Kelas') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('dashboard.news.index') }}" :active="request()->routeIs('dashboard.news.index')">
+                {{ __('Berita') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
