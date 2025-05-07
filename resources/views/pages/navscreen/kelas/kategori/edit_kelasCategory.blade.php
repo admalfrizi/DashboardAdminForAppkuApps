@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 @endif
-                <form class="w-full" action="{{ route('dashboard.categoryKelas.update') }}" method="post" enctype="multipart/form-data">
+                <form class="w-full" action="{{ route('dashboard.categoryKelas.update', $categoryKelas->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <input type="hidden" name="id" value="{{ $categoryKelas->id }}">

@@ -47,7 +47,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
         Route::post('kelas/store', [KelasController::class, 'store'])->name("kelas.store");
         Route::post('news/store', [NewsController::class, 'store'])->name("news.store");
-        Route::post('categoryKelas/store', [NewsController::class, 'store'])->name("categoryKelas.store");
+        Route::post('categoryKelas/store', [KelasCategoryController::class, 'store'])->name("categoryKelas.store");
         Route::post('webinar/store', [WebinarController::class, 'store'])->name("webinar.store");
 
         Route::post('categoryKelas/update/{id}', [KelasCategoryController::class, 'update'])->name("categoryKelas.update");

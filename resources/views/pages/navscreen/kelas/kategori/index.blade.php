@@ -28,7 +28,7 @@
                             <td scope="col" class="px-6 py-3">{{$item->categoryName}}</td>
                             <td scope="col" class="px-6 py-3">
                                 <a class="inline-block border border-gray-700 bg-gray-700 text-white rounded-md px-2 py-1 m-1 transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline" 
-                                    href={{ route('dashboard.categoryKelas.edit', $item->id) }}>
+                                    href="{{ route('dashboard.categoryKelas.edit', $item->id) }}">
                                     Edit
                                 </a>
                                 <a class="inline-block border border-red-700 bg-red-700 text-white rounded-md px-2 py-1 m-1 transition duration-500 ease select-none hover:bg-red-800 focus:outline-none focus:shadow-outline" 
