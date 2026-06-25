@@ -25,21 +25,17 @@ class KelasImagesController extends Controller
     }
 
     public function store(Request $request, $id) {
-        $files = $request->file('files');
+        $file = $request->file('image');
         $kelas = Kelas::find($id);
 
-        if($request->hasFile('files')){
-            foreach ($files as $file) {
-                $destination_path = "public/images/kelasImages/$kelas->id";
-                $fileName = time().'.'.$file->extension();
-                $file->storeAs($destination_path,$fileName);
+        $destination_path = "public/images/kelasImages/$kelas->id";
+        $fileName = time().'.'.$file->extension();
+        $file->storeAs($destination_path,$fileName);
 
-                KelasImages::create([
-                    'kelas_id' => $kelas->id,
-                    'image' => $fileName
-                ]);
-            }
-        }
+        KelasImages::create([
+            'kelas_id' => $kelas->id,
+            'image' => $fileName
+        ]);
 
         return redirect()->route('dashboard.kelas.kelasGallery.index', $kelas->id);
     }

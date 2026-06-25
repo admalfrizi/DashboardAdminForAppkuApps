@@ -26,7 +26,7 @@
                         <tr>
                             <td scope="col" class="px-6 py-3">{{$imgKelas+1}}</td>
                             <td scope="col" class="px-6 py-3">
-                                <image width="90px" src="{{ asset('storage/images/kelasImages/'.$kelas->id.'/'.$item->image) }}"/>
+                                <img width="90px" src="{{ asset('storage/images/kelasImages/'.$kelas->id.'/'.$item->image) }}"/>
                             </td>
                             <td scope="col" class="px-6 py-3">
                                 @if(count($item->where('kelas_id', $kelas->id)->get()->toArray()) == 1)
